@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1" author="postgres">
+        <sql>
+            CREATE TABLE product
+            (
+                id          BIGSERIAL    NOT NULL,
+                name        VARCHAR(255) NOT NULL,
+                brand       VARCHAR(255) NOT NULL,
+                description TEXT         NOT NULL,
+                category    VARCHAR(255),
+                price       DECIMAL(10,2),
+                discount    DECIMAL(10,2),
+                CONSTRAINT pk_product PRIMARY KEY (id)
+            );
+        </sql>
+        <rollback>
+            DROP TABLE product;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="postgres">
+        <sql>
+            CREATE TABLE product_order
+            (
+                id            BIGSERIAL NOT NULL,
+                product_id    BIGINT NOT NULL,
+                user_id       BIGINT NOT NULL,
+                date_of_issue TIMESTAMP,
+                CONSTRAINT pk_product_order PRIMARY KEY (id),
+                CONSTRAINT fk_product_order FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE ON UPDATE CASCADE
+            );
+        </sql>
+        <rollback>
+            DROP TABLE product_order;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="postgres">
+        <sql>
+            INSERT INTO product (name, brand, description, category, price, discount)
+            VALUES ('Smartphone X', 'TechBrand',
+                    'A high-performance smartphone with a sleek design and advanced features.',
+                    'Electronics', 999.99, 50.00);
+            INSERT INTO product (name, brand, description, category, price, discount)
+            VALUES ('Wireless Headphones', 'AudioMax',
+                    'Experience high-quality sound with these noise-canceling wireless headphones.',
+                    'Electronics', 199.99, 20.00);
+            INSERT INTO product (name, brand, description, category, price, discount)
+            VALUES ('Gaming Laptop', 'GameTech',
+                    'A powerful gaming laptop with the latest GPU and high refresh rate display.',
+                    'Computers', 1499.99, 100.00);
+            INSERT INTO product (name, brand, description, category, price, discount)
+            VALUES ('Smartwatch Pro', 'WearTech',
+                    'Track your fitness and stay connected with this latest generation smartwatch.',
+                    'Wearables', 299.99, 30.00);
+            INSERT INTO product (name, brand, description, category, price, discount)
+            VALUES ('Coffee Maker', 'HomeBrew',
+                    'Brew delicious coffee at home with this easy-to-use coffee maker.',
+                    'Home Appliances', 89.99, 10.00);
+        </sql>
+        <rollback>
+            TRUNCATE TABLE product;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1" author="postgres">
+        <sql>
+            CREATE TABLE app_user (
+                                      id BIGSERIAL NOT NULL,
+                                      username VARCHAR(255) NOT NULL,
+                                      password VARCHAR(255) NOT NULL,
+                                      name VARCHAR(255) NOT NULL,
+                                      role VARCHAR(10) NOT NULL,
+                                      CONSTRAINT pk_app_user PRIMARY KEY (id)
+            );
+        </sql>
+        <rollback>
+            DROP TABLE app_user;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="postgres">
+        <sql>
+            ALTER TABLE app_user ADD COLUMN email VARCHAR(255);
+        </sql>
+        <rollback>
+            ALTER TABLE app_user DROP COLUMN email;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

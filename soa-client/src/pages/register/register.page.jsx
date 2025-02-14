@@ -29,7 +29,7 @@ export default class RegisterPage extends React.Component {
 
     handleRegister(e) {
         e.preventDefault();
-        this.state({ submitted: true });
+        this.setState({ submitted: true });
         const { user } = this.state;
         if (!(user.username && user.password && user.name)) {
             return;

@@ -66,9 +66,9 @@ export default class HomePage extends React.Component {
                     </div>
                 }
                 {products.loading && <em>Loading products...</em>}
-                {products.length &&
-                    <div> style={{marginTop: 50}}>
-                        <h2 style={{marginBottom: 60}}>Welcome to the website! Please choose the product you want to buy from the following list:</h2>
+                {products.length > 0 &&
+                    <div style={{ marginTop: 50 }}>
+                        <h2 style={{ marginBottom: 60 }}>Welcome to the website! Please choose the product you want to buy from the following list:</h2>
                         <table className="table table-striped">
                             <thead>
                             <tr>

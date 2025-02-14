@@ -51,7 +51,9 @@ export default class CardPaymentPage extends React.Component {
         e.preventDefault();
         alert('Your payment is successful!');
         this.form.reset();
-        const id = this.state.props.history.location.pathname.substr(9,1);
+        const id = this.state.props.history.location.pathname.substr(8);
+        console.log(this.state.props.history.location.pathname);
+        console.log(id);
         ProductService.findProductById(id).then(product => {
             var order = new ProductOrder(UserService.currentUserValue.id, product.data);
             ProductService.createOrder(order).then(data => {

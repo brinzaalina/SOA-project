@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient("user-service")
+@FeignClient("user-management")
 public interface UserClient {
     @RequestMapping(method = RequestMethod.POST, value = "/service/names", consumes = "application/json")
     List<String> getUserNames(@RequestBody List<Long> userIdList);

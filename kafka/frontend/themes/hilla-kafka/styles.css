@@ -1,1 +1,15 @@
 @import url('line-awesome/dist/line-awesome/css/line-awesome.min.css');
+
+/* Debugging: Ensure input fields have styles */
+vaadin-text-field::part(input-field) {
+    background-color: white !important;
+    border: 1px solid black !important;
+    padding: 10px !important;
+}
+
+vaadin-message-input {
+    width: 100% !important;
+    min-height: 50px !important;
+    border: 1px solid black !important;
+    padding: 10px !important;
+}

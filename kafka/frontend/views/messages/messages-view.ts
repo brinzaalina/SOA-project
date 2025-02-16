@@ -3,7 +3,10 @@ import {html} from "lit";
 import {TextFieldChangeEvent} from "@vaadin/text-field";
 import {MessageEndpoint} from "Frontend/generated/endpoints";
 import { customElement, state } from "lit/decorators.js";
-import Message from "Frontend/generated/com/example/application/model/Message"
+import Message from "Frontend/generated/com/example/application/model/Message";
+import "@vaadin/message-list";
+import "@vaadin/message-input";
+import "@vaadin/text-field";
 
 
 @customElement('messages-view')
@@ -13,7 +16,7 @@ export class MessagesView extends View {
 
     render() {
         return html`
-      <h1 class="m-m">Book lecture club</h1>
+      <h1 class="m-m">Forum</h1>
       <vaadin-message-list
         class="flex-grow"
         .items=${this.messages}

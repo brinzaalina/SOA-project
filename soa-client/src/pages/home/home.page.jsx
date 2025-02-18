@@ -116,16 +116,19 @@ export default class HomePage extends React.Component {
                                     </td>
                                     <td style={{padding: "10px", textAlign: "left"}}>{product.description}</td>
                                     <td style={{padding: "10px", textAlign: "left"}}>{product.discount}</td>
-                                    <td style={{padding: "10px", textAlign: "left"}}>
+                                    <td style={{padding: "10px", textAlign: "left", display: "flex", flexDirection: "column", gap: "10px"}}>
                                         <button style={{
                                             backgroundColor: "#56316c",
                                             color: "white",
-                                            padding: "8px 15px",
-                                            marginRight: "10px",
+                                            padding: "10px 20px",
                                             borderRadius: "5px",
                                             border: "none",
                                             cursor: "pointer",
-                                            transition: "background 0.3s ease-in-out"
+                                            transition: "background 0.3s ease-in-out",
+                                            fontSize: "14px",
+                                            fontWeight: "bold",
+                                            minWidth: "100px", /* Ensures same width */
+                                            textAlign: "center"
                                         }}
                                                 onMouseEnter={(e) => e.target.style.backgroundColor = "#4a148c"}
                                                 onMouseLeave={(e) => e.target.style.backgroundColor = "#56316c"}
@@ -135,11 +138,15 @@ export default class HomePage extends React.Component {
                                         <button style={{
                                             backgroundColor: "#9575cd",
                                             color: "white",
-                                            padding: "8px 15px",
+                                            padding: "10px 20px",
                                             borderRadius: "5px",
                                             border: "none",
                                             cursor: "pointer",
-                                            transition: "background 0.3s ease-in-out"
+                                            transition: "background 0.3s ease-in-out",
+                                            fontSize: "14px",
+                                            fontWeight: "bold",
+                                            minWidth: "100px", /* Ensures same width */
+                                            textAlign: "center"
                                         }}
                                                 onMouseEnter={(e) => e.target.style.backgroundColor = "#7e57c2"}
                                                 onMouseLeave={(e) => e.target.style.backgroundColor = "#9575cd"}
@@ -147,6 +154,7 @@ export default class HomePage extends React.Component {
                                             Detail
                                         </button>
                                     </td>
+
                                 </tr>
                             ))}
                             </tbody>

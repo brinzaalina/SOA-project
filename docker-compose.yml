@@ -44,9 +44,15 @@ services:
             eureka.client.serviceUrl.defaultZone: http://eureka-container:8761/eureka/
 
     client:
-        build: "E:\\Desktop Folders\\Facultate\\Master\\Anul 2\\SOA\\SOA-project\\SOA-project\\soa-client"
+        build:
+            context: "E:\\Desktop Folders\\Facultate\\Master\\Anul 2\\SOA\\SOA-project\\SOA-project\\soa-client"
         environment:
+            - CHOKIDAR_USEPOLLING=true
+            - WATCHPACK_POLLING=true
             - REACT_APP_PORT=3000
+        volumes:
+            - "E:\\Desktop Folders\\Facultate\\Master\\Anul 2\\SOA\\SOA-project\\SOA-project\\soa-client:/app"
+            - /app/node_modules
         expose:
             - "3000"
         ports:

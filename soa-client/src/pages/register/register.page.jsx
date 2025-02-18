@@ -50,32 +50,65 @@ export default class RegisterPage extends React.Component {
     render() {
         const { user, submitted, loading, errorMessage } = this.state;
         return (
-            <div className="col-md-12">
-                <div className="card card-container">
-                    <img id="profile-img" className="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                    {errorMessage && <div className="alert alert-danger" role="alert"><strong>Error! </strong> {errorMessage}</div>}
-                    <form name="form" onSubmit={(e) => this.handleRegister(e)}>
-                        <div className={'form-group' + (submitted && !user.name ? ' has-error' : '')}>
-                            <label htmlFor="name">Full Name</label>
-                            <input type="text" className="form-control" name="name" value={user.name} onChange={(e) => this.handleChange(e)}/>
-                            {submitted && !user.name && <div className="help-block">Name is required</div>}
-                        </div>
-                        <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
-                            <label htmlFor="username">Username</label>
-                            <input type="text" className="form-control" name="username" value={user.username} onChange={(e) => this.handleChange(e)}/>
-                            {submitted && !user.username && <div className="help-block">Username is required</div>}
-                        </div>
-                        <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                            <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" name="password" value={user.password} onChange={(e) => this.handleChange(e)}/>
-                            {submitted && !user.password && <div className="help-block">Password is required</div>}
-                        </div>
-                        <div className="form-group">
-                            <button className="btn btn-lg btn-primary btn-block btn-signin form-submit-button" disabled={loading}>Sign Up</button>
-                        </div>
-                    </form>
-                </div>
+            <div className="card-container">
+                {/* Profile Image */}
+                <img className="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
+
+                {/* Bootstrap Error Alert */}
+                {errorMessage && (
+                    <div className="alert alert-danger" role="alert">
+                        <strong>Error! </strong> {errorMessage}
+                    </div>
+                )}
+
+                {/* Registration Form */}
+                <form name="form" onSubmit={(e) => this.handleRegister(e)}>
+                    {/* Full Name Field */}
+                    <div className={'form-group' + (submitted && !user.name ? ' has-error' : '')}>
+                        <label htmlFor="name">Full Name</label>
+                        <input
+                            type="text"
+                            className="input-field"
+                            name="name"
+                            value={user.name}
+                            onChange={(e) => this.handleChange(e)}
+                        />
+                        {submitted && !user.name && <div className="help-block error-message">Name is required</div>}
+                    </div>
+
+                    {/* Username Field */}
+                    <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            className="input-field"
+                            name="username"
+                            value={user.username}
+                            onChange={(e) => this.handleChange(e)}
+                        />
+                        {submitted && !user.username &&
+                            <div className="help-block error-message">Username is required</div>}
+                    </div>
+
+                    {/* Password Field */}
+                    <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            className="input-field"
+                            name="password"
+                            value={user.password}
+                            onChange={(e) => this.handleChange(e)}
+                        />
+                        {submitted && !user.password &&
+                            <div className="help-block error-message">Password is required</div>}
+                    </div>
+
+                    {/* Submit Button */}
+                    <button className="submit-button" disabled={loading}>Sign Up</button>
+                </form>
             </div>
+
         );
     }
 }

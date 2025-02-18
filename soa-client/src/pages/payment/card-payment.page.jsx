@@ -70,8 +70,10 @@ export default class CardPaymentPage extends React.Component {
         return (
             <div key='Payment'>
                 <div className="App-payment">
-                    <h1>Enter your payment details</h1>
-                    <h4>Please input your information below:</h4>
+                    <h1 className="payment-title">Enter your payment details</h1>
+                    <h4 className="payment-subtitle">Please input your information below:</h4>
+
+                    {/* Credit Card Preview */}
                     <Card
                         number={number}
                         name={name}
@@ -80,26 +82,31 @@ export default class CardPaymentPage extends React.Component {
                         focused={focused}
                         callback={this.handleCallback}
                     />
-                    <form ref={c => (this.form = c)} onSubmit={this.handleSubmit}>
+
+                    {/* Payment Form */}
+                    <form ref={c => (this.form = c)} onSubmit={this.handleSubmit} className="payment-form">
+                        {/* Name Field */}
                         <div className="form-group">
                             <small>Name (as on card):</small>
                             <input
                                 type="text"
                                 name="name"
-                                className="form-control"
-                                placeholder="Name"
+                                className="input-field"
+                                placeholder="Full Name"
                                 pattern="[a-z A-Z-]+"
                                 required
                                 onChange={this.handleInputChange}
                                 onFocus={this.handleInputFocus}
                             />
                         </div>
+
+                        {/* Card Number */}
                         <div className="form-group">
                             <small>Card Number:</small>
                             <input
                                 type="tel"
                                 name="number"
-                                className="form-control"
+                                className="input-field"
                                 placeholder="Card Number"
                                 pattern="[\d| ]{16,22}"
                                 maxLength="19"
@@ -108,12 +115,14 @@ export default class CardPaymentPage extends React.Component {
                                 onFocus={this.handleInputFocus}
                             />
                         </div>
+
+                        {/* CVC Field */}
                         <div className="form-group">
                             <small>CVC:</small>
                             <input
                                 type="tel"
                                 name="cvc"
-                                className="form-control"
+                                className="input-field"
                                 placeholder="CVC"
                                 pattern="\d{3}"
                                 required
@@ -121,12 +130,14 @@ export default class CardPaymentPage extends React.Component {
                                 onFocus={this.handleInputFocus}
                             />
                         </div>
+
+                        {/* Expiry Date */}
                         <div className="form-group">
                             <small>Expiration Date:</small>
                             <input
                                 type="tel"
                                 name="expiry"
-                                className="form-control"
+                                className="input-field"
                                 placeholder="MM/YY"
                                 pattern="\d\d/\d\d"
                                 required
@@ -134,9 +145,13 @@ export default class CardPaymentPage extends React.Component {
                                 onFocus={this.handleInputFocus}
                             />
                         </div>
-                        <input type="hidden" name="issuer" value={issuer} />
+
+                        {/* Hidden Issuer Field */}
+                        <input type="hidden" name="issuer" value={issuer}/>
+
+                        {/* Submit Button */}
                         <div className="form-actions">
-                            <button>Submit</button>
+                            <button className="submit-button">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -145,4 +160,4 @@ export default class CardPaymentPage extends React.Component {
     }
 }
 
-render(<CardPaymentPage />, document.getElementById('root'));
+render(<CardPaymentPage/>, document.getElementById('root'));

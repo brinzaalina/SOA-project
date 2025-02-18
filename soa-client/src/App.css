@@ -1,28 +1,99 @@
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* App Container */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 8vmin;
-  pointer-events: none;
+/* Navbar Custom Styling */
+.custom-navbar {
+  background-color: #56316c !important;
+  padding: 12px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.App-header {
-  background-color: #5e3a6e;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.custom-navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #d1c4e9 !important;
+}
+
+/* Override Bootstrap's Nav Links */
+.custom-navbar .nav-item {
+  list-style: none;
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: bold;
+  padding: 10px 15px !important;
+  margin: 0 5px;
+  border-radius: 5px;
+  text-decoration: none !important;  /* Removes Bootstrap underline */
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.custom-navbar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #d1c4e9 !important;
+}
+
+/* Logout Link (Red Hover Effect) */
+.custom-navbar .logout-link:hover {
+  background: rgba(255, 0, 0, 0.3) !important;
+  color: #ffebee !important;
+}
+
+/* Container Styling */
+.container {
+  margin-top: 30px;
+  max-width: 1200px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+/* Override Bootstrap's Default Link Style */
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* Buttons */
+button {
+  background: #56316c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #7e57c2;
+  border-radius: 5px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
+/* Keyframes */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

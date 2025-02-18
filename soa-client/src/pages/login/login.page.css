@@ -1,107 +1,86 @@
-label{
+/* General Label Styling */
+label {
     display: block;
     margin-top: 10px;
+    font-weight: 500;
+    color: #333;
 }
 
-.btn-link{
-    display: block;
-    margin: auto;
-    width: 100%;
+/* Centered Card Container */
+.card-container {
+    max-width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 10px;
-    color: cornflowerblue;
+    margin: 50px auto;
 }
 
-
-.card-container.card {
-    max-width: 350px!important;
-    padding: 40px 40px;
-}
-
-.btn {
-    font-weight: 700;
-    height: 36px;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
-}
-
-.card {
-    background-color: #F7F7F7;
-    /* just in case there no content*/
-    padding: 20px 25px 30px;
-    margin: 0 auto 25px;
-    margin-top: 50px;
-    /* shadows and rounded borders */
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-.profile-img-card {
+/* Profile Image */
+.profile-img {
     width: 96px;
     height: 96px;
-    margin: 0 auto 10px;
+    margin: 0 auto 15px;
     display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
     border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-.form-signin #inputEmail,
-.form-signin #inputPassword {
-    direction: ltr;
+/* Input Fields */
+.input-field {
+    width: 100%;
     height: 44px;
     font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 8px;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.form-signin input[type=email],
-.form-signin input[type=password],
-.form-signin input[type=text],
-.form-signin button {
-    width: 100%;
-    display: block;
-    margin-bottom: 10px;
-    z-index: 1;
-    position: relative;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+/* Input Focus Effect */
+.input-field:focus {
+    border-color: #56316c;
+    outline: none;
+    box-shadow: 0 0 8px rgba(106, 27, 154, 0.3);
 }
 
-.form-signin .form-control:focus {
-    border-color: rgb(104, 145, 162);
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
-}
-
-.btn.btn-signin {
-    /*background-color: #4d90fe; */
-    background-color: rgb(104, 145, 162);
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
-    padding: 0px;
-    font-weight: 700;
+/* Error Message */
+.error-message {
+    color: #d32f2f;
     font-size: 14px;
-    height: 36px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    border: none;
-    -o-transition: all 0.218s;
-    -moz-transition: all 0.218s;
-    -webkit-transition: all 0.218s;
-    transition: all 0.218s;
+    margin-top: 5px;
 }
 
+/* Form Submit Button */
+.submit-button {
+    background-color: #56316c;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 15px;
+}
 
-.btn.btn-signin:hover,
-.btn.btn-signin:active,
-.btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
+.submit-button:hover {
+    background-color: #7e57c2;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Alert Box for Errors */
+.alert-box {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-align: center;
 }

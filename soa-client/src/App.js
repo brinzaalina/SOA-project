@@ -15,6 +15,7 @@ import ProfilePage from "./pages/profile/profile.page";
 import DetailPage from "./pages/detail/detail.page";
 import CardPaymentPage from "./pages/payment/card-payment.page";
 import ForumPage from "./pages/forum/forum.page";
+import './App.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -46,18 +47,18 @@ export default class App extends React.Component {
         <Router history={history}>
           <div>
             {this.state.currentUser &&
-              <nav className="navbar navbar-expand navbar-dark bg-dark">
+              <nav className="navbar navbar-expand custom-navbar">
                 <a className="navbar-brand" href="/home">Shop</a>
                 <div className="navbar-nav ml-auto">
                   <Link to="/home" className="nav-item nav-link"><FontAwesomeIcon icon={faHome}/>Home</Link>
                   <Link to="/profile" className="nav-item nav-link"><FontAwesomeIcon icon={faUser}/>{currentUser.name}</Link>
                   <Link to="/forum" className="nav-item nav-link"><FontAwesomeIcon icon={faKeyboard}/>Forum</Link>
-                  <a onClick={() => this.logout()} className="nav-item nav-link"><FontAwesomeIcon icon={faSignOutAlt}/>Logout</a>
+                  <a onClick={() => this.logout()} className="nav-item nav-link logout-link"><FontAwesomeIcon icon={faSignOutAlt}/>Logout</a>
                 </div>
               </nav>
             }
             {!this.state.currentUser &&
-              <nav className="navbar navbar-expand navbar-dark bg-dark">
+              <nav className="navbar navbar-expand custom-navbar">
                 <a className="navbar-brand" href="/home">Shop</a>
                 <div className="navbar-nav ml-auto">
                   <Link to="/home" className="nav-item nav-link"><FontAwesomeIcon icon={faHome}/>Home</Link>

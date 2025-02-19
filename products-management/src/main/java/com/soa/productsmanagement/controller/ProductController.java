@@ -77,4 +77,14 @@ public class ProductController {
         List<String> userNames = userClient.getUserNames(userIdList);
         return ResponseEntity.ok(userNames);
     }
+
+    @GetMapping("/service/total/{userId}")
+    public ResponseEntity<?> computeTotalSpent(@PathVariable Long userId) {
+        double total = productService.computeTotalSpent(userId);
+        if ( total == -1) {
+            return ResponseEntity.internalServerError().build();
+        } else {
+            return ResponseEntity.ok(total);
+        }
+    }
 }

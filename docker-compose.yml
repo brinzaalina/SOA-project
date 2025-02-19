@@ -30,6 +30,7 @@ services:
         environment:
             server.port: 8081
             eureka.client.serviceUrl.defaultZone: http://eureka-container:8761/eureka/
+            LAMBDA_URL: https://g5gnfluavgelfxzw4cg2mwmnei0oeoue.lambda-url.us-east-1.on.aws/
 
     zuul-container:
         image: zuul-image

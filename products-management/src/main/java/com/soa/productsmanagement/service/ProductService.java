@@ -11,4 +11,5 @@ public interface ProductService {
     List<ProductOrder> findOrdersOfUser(Long userId);
     List<ProductOrder> findOrdersOfProduct(Long productId);
     ProductOrder saveOrder(ProductOrder productOrder);
+    double computeTotalSpent(Long userId);
 }

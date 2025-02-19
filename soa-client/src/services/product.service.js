@@ -42,6 +42,14 @@ class ProductService {
             }
         });
     }
+
+    getTotalSpent(id) {
+        return axios.get(API_URL + 'total/' + id, {
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8'
+            }
+        });
+    }
 }
 
 export default new ProductService();

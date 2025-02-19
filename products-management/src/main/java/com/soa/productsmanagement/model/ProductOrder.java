@@ -23,6 +23,4 @@ public class ProductOrder implements Serializable {
 
     @Column(name = "date_of_issue")
     private LocalDateTime dateOfIssue;
-
-
 }

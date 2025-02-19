@@ -12,7 +12,8 @@ export default class ProfilePage extends React.Component {
 
         this.state = {
             user: UserService.currentUserValue,
-            orders: []
+            orders: [],
+            totalSpent: 0
         };
     }
 
@@ -23,6 +24,15 @@ export default class ProfilePage extends React.Component {
         const user = this.state.user;
         ProductService.filterOrders(user.id).then(orders => {
             this.setState({orders: orders.data});
+        });
+        this.fetchTotalSpent(user);
+    }
+
+    fetchTotalSpent(user) {
+        ProductService.getTotalSpent(user.id).then(response => {
+            this.setState({totalSpent: response.data});
+        }).catch(error => {
+            console.error(error);
         });
     }
 
@@ -41,6 +51,9 @@ export default class ProfilePage extends React.Component {
                     <h1 style={{color: "#56316c", fontSize: "2.5rem", marginBottom: "10px"}}>
                         Hello, {this.state.user.name}!
                     </h1>
+                    <h2 style={{color: "#4caf50", fontSize: "1.8rem"}}>
+                        Total Spent: ${this.state.totalSpent.toFixed(2)}
+                    </h2>
                 </div>
 
                 {/* Loading Orders */}
@@ -78,7 +91,7 @@ export default class ProfilePage extends React.Component {
                                 <td style={{padding: "10px", textAlign: "left"}}>{order.product.brand}</td>
                                 <td style={{padding: "10px", textAlign: "left"}}>{order.product.category}</td>
                                 <td style={{padding: "10px", textAlign: "left", color: "#4caf50", fontWeight: "bold"}}>
-                                    ${order.product.price}
+                                    ${order.product.price - order.product.discount}
                                 </td>
                                 <td style={{
                                     padding: "10px",

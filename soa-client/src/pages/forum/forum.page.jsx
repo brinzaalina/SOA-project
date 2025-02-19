@@ -3,7 +3,7 @@ import React from "react";
 export default class ForumPage extends React.Component {
     state = {
         products: [
-            {name: "Product 1", brand: "Brand 1", category: "Category 1", price: 100, link: "localhost:8082/chat"}
+            {name: "Gaming Laptop", brand: "GameTech", category: "Computers", link: "localhost:8082/chat"}
         ]
     };
 
